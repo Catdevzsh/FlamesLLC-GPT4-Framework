@@ -1,0 +1,17 @@
+
+import argparse 
+ 
+parser = argparse.ArgumentParser() 
+parser.add_argument("--data", type=str, help="The data to be compared")   # add argument for data set to compare (string)  	    	   	      	      # add an argument for the ML model being used (string) 
+
+ parser.add_argument('--model', type=str, help='Model name')              # add arguments for the parameters of GPT3 Turbo algorithm and its hyperparameters(integers/floats/strings etc.)                                  
+
+ parser.add_argument('--epochs', default=100,type=int ,help='Number of epochs')                              
+
+ parser.add_argument('--batch-size' ,default=256,type=int ,help='Size of each batch')                        
+
+ parser.add_argument(' --learning-rate' ,default=0.0125,type=float ,help='Learning rate value ')       
+
+ args = vars(parser . parse _args())          # Parse arguments into dictionary object with key values pairs                        
+
+ from codex import DataModule           # Import the CODEX Datamodule which will run GPT3 turbo algorithm on our dataset                      datamodule = DataModule(args['data'] )                     x1 = datamodule . getDataSet()             y2 = datamodule . getLabels()                        gpt3turboModel = codexMLmodels[args['model']]                    params={}            params ['epochs']         = args ["epochs"]                  params["batch size"]    = args ["batch size"]                params [ "learning rate" ]====> args [ "learning Rate" ]                       resultsOfGPTTrainngRunnableObjectInCodexEnvironment========>gptTurboModel . fit (x1y2params )
